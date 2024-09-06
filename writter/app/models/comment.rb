@@ -8,4 +8,5 @@ class ValidAuthorValidator < ActiveModel::EachValidator
 
 class Comment < ApplicationRecord
     validates :author, valid_author: true
+    belongs_to :post
 end

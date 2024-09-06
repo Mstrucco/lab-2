@@ -1,0 +1,22 @@
+<h1><%= @post.title %></h1>
+<p><%= @post.content %></p>
+<p><strong>Author:</strong> <%= @post.author %></p>
+<p><strong>Published:</strong> <%= @post.published? ? "Yes" : "No" %></p>
+
+<hr>
+
+<h2>Comments</h2>
+
+<% if @comments.any? %>
+  <ul class="list-group">
+    <% @comments.each do |comment| %>
+      <li class="list-group-item">
+        <strong><%= comment.author %>:</strong> <%= comment.content %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No comments yet.</p>
+<% end %>
+
+<%= link_to 'Back to All Posts', posts_path, class: "btn btn-secondary" %>

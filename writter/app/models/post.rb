@@ -12,6 +12,7 @@ class Post < ApplicationRecord
     validates :title, length: { maximum: 100 }
     enum published: { unpublished: 0, published: 1 }
     validates :author, valid_author: true
+    has_many :comments, dependent: :destroy
 
 
 end
